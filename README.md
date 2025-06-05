@@ -20,7 +20,7 @@ A Laravel 11 application for managing tasks with user authentication, filtering,
 - Composer
 - Node.js & npm
 - MySQL or PostgreSQL
-- Laravel 11
+- Laravel 12
 
 ---
 
