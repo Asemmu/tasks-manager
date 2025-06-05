@@ -28,24 +28,24 @@ A Laravel 11 application for managing tasks with user authentication, filtering,
 
 ### 1. Clone the repository
 
-git clone https://github.com/your-username/your-repo.git
-cd your-repo
+- git clone https://github.com/Asemmu/tasks-manager
+- cd tasks-manager
 
 ### 2. Install backend dependencies
-composer install
+- composer install
 
 
 ### 3. Install frontend dependencies
-npm install && npm run build
+- npm install && npm run build
 
 
 ### 4. Configure environment
-cp .env.example .env
-php artisan key:generate
+- cp .env.example .env
+- php artisan key:generate
 
 
 ### 5. Migrate the database
-php artisan migrate
+- php artisan migrate
 
 ### 6.Serve the application
-php artisan serve
+- php artisan serve
