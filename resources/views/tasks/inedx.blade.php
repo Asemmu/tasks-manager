@@ -18,10 +18,10 @@
     <x-ui.modal :header="'Add New Task'" :id="'filterModal'">
 
     <x-ui.form :action_route="route('tasks.index')" :method="'GET'"> 
-                <x-ui.select :name="'status'" :id="'status'" :label="'Status'" :options="$statuses"  :isrequired="false" :value="''"/>  
-                <x-ui.select :name="'priority'" :id="'priority'" :label="'Priority'" :options="$option"  :isrequired="false" :value="''"/>  
-                <x-ui.input :name="'name'" :id="'name'" :label="'Task name'" :type="'text'" :isrequired="false" :value="''"/>  
-                <x-ui.input :name="'per_page'" :id="'per_page'" :label="'Items Per Page'"  :type="'number'" :isrequired="false"/>  
+                <x-ui.select :name="'status_filter'" :id="'status_filter'" :label="'Status'" :options="$statuses"  :isrequired="false" :value="request('status_filter')"/>  
+                <x-ui.select :name="'priority_filter'" :id="'priority_filter'" :label="'Priority'" :options="$option"  :isrequired="false" :value="request('priority_filter')"/>  
+                <x-ui.input :name="'name_filter'" :id="'name_filter'" :label="'Task name'" :type="'text'" :isrequired="false"  :value="request('name_filter')"/>  
+                <x-ui.input :name="'per_page'" :id="'per_page'" :label="'Items Per Page'"  :type="'number'" :isrequired="false" :value=" request('per_page')"/>  
     <button type="submit" class="btn btn-primary btn-block mb-4 w-100">Filter</button>
       </x-ui.form>
   </x-ui.modal>
@@ -31,7 +31,7 @@
           <!-- Name input -->
             <x-ui.input :name="'name'" :id="'name'" :label="'Task'" :type="'text'"  :isrequired="true" />  
             <x-ui.input :name="'date'" :id="'date'" :label="'Date'" :type="'date'" :isrequired="true"/>  
-            <x-ui.select :name="'priority'" :id="'priority'" :label="'Priority'" :options="$option"  :isrequired="true", :value=''/>  
+            <x-ui.select :name="'priority'" :id="'priority'" :label="'Priority'" :options="$option"  :isrequired="true", :value="''"/>  
             <x-ui.text :name="'comments'" :id="'comments'" :label="'Comments'"  :isrequired="true"/>  
           
             

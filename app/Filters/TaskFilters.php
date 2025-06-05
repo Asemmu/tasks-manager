@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace App\Filters;
 
@@ -9,7 +9,11 @@ class TaskFilters
     protected $request;
     protected $builder;
 
-    protected $filters = ['status', 'priority', 'name', 'itemsPerPage'];
+    protected $filters = [
+        'status_filter' => 'status',
+        'priority_filter' => 'priority',
+        'name_filter' => 'name',
+    ];
 
     public function __construct(Request $request)
     {
@@ -20,12 +24,11 @@ class TaskFilters
     {
         $this->builder = $builder;
 
-        foreach ($this->filters as $filter) {
-            if (method_exists($this, $filter) && $this->request->filled($filter)) {
-                $this->$filter($this->request->input($filter));
+        foreach ($this->filters as $input => $method) {
+            if (method_exists($this, $method) && $this->request->filled($input)) {
+                $this->$method($this->request->input($input));
             }
         }
-
         return $this->builder;
     }
 
@@ -44,5 +47,3 @@ class TaskFilters
         $this->builder->where('name', 'like', "%$value%");
     }
 }
-
-?>
