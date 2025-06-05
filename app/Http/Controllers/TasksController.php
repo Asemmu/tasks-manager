@@ -14,8 +14,10 @@ class TasksController extends Controller
     //
     public function index(Request $request)
     {
+        $perPage = $request->input('per_page', 10);
+
         $query = Auth::user()->tasks();
-         $tasks = (new TaskFilters($request))->apply($query)->paginate(1);
+         $tasks = (new TaskFilters($request))->apply($query)->paginate($perPage);
 
         return view('tasks.inedx')->with('tasks', $tasks);
     }

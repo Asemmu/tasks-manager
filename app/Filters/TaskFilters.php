@@ -9,7 +9,7 @@ class TaskFilters
     protected $request;
     protected $builder;
 
-    protected $filters = ['status', 'priority', 'name'];
+    protected $filters = ['status', 'priority', 'name', 'itemsPerPage'];
 
     public function __construct(Request $request)
     {
