@@ -1,23 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+            <x-cards-container>
+                <x-ui.card :name="'New'" :count="$counts['New']" :icon="'fas fa-plus-circle text-primary'"/>
+                <x-ui.card :name="'In Progress'" :count="$counts['In Progress']" :icon="'fas fa-spinner fa-spin text-warning'"/>
+                <x-ui.card :name="'Pending'" :count="$counts['Pedning']" :icon="'fas fa-clock text-secondary'"/>
+                <x-ui.card :name="'Completed'" :count="$counts['Completed']" :icon="'fas fa-check-circle text-success'"/>
+            </x-cards-container>
+            <x-ui.table :rows="$tasks"/>
 
-                    {{ __('You are logged in!') }}
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
